@@ -15,5 +15,7 @@
 <a href="https://dev.to/georgekobaidze/vibe-coding-isnt-the-problem-calling-it-engineering-is-lm1"><img src="./assets/writing/post-5.svg" width="100%" align="top" alt="Vibe Coding Isn&#x27;t the Problem. Calling It Engineering Is — published 2026-09-13, 169 reactions, 218 comments"></a>
 <!-- writing:end -->
 <a href="https://dev.to/georgekobaidze"><img src="./assets/writing/all-articles.svg" width="100%" align="top" alt="Read all articles on DEV Community"></a>
+<img src="./assets/links.svg" width="100%" align="top" alt="Links">
+<a href="https://dev.to/georgekobaidze"><img src="./assets/links/dev.svg" width="20%" align="top" alt="DEV Community"></a><a href="https://www.linkedin.com/in/giorgikobaidze/"><img src="./assets/links/linkedin.svg" width="20%" align="top" alt="LinkedIn"></a><a href="https://x.com/georgekobaidze"><img src="./assets/links/x.svg" width="20%" align="top" alt="X"></a><a href="https://www.youtube.com/@Pilotronica"><img src="./assets/links/youtube.svg" width="20%" align="top" alt="YouTube"></a><a href="https://discord.com/users/571315867426488330"><img src="./assets/links/discord.svg" width="20%" align="top" alt="Discord"></a>
 <img src="./assets/footer.svg" width="100%" align="top" alt="Connection closed.">
 </p>
