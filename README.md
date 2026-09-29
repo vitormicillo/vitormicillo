@@ -1,3 +1,6 @@
+> [!NOTE]
+> This custom profile is currently under development. Some sections may be incomplete or temporarily unavailable.
+
 <p align="center">
 <img src="./assets/header.svg" width="100%" align="top" alt="Giorgi Kobaidze — software engineer and engineering manager. 10 years of C# and .NET, back-end at heart. Building open-source tools under Pilotronica.">
 <img src="./assets/about.svg" width="100%" align="top" alt="About: I've been fascinated by how computers work since I was 10, the day I sat in front of one for the first time. That curiosity became a career: for more than a decade I've been shipping software professionally. These days I lead multiple engineering squads, and in my free time I always write code for my own projects and share technical articles on DEV Community.">
