@@ -293,6 +293,8 @@ def build_stats(d):
     # row 1 — big tiles
     tw, gap, ty, th = 182, 16, 118, 92
     t1 = [("TOTAL STARS", fmt(d["stars"]), f"across {d.get('repo_count', 'all')} repos" if d.get("repo_count") else "across all repos"),
+          (f"CONTRIBUTIONS {d['year']}", fmt(d["contributions_year"]), f"{fmt(d['contributions_all'])} all time")
+          if "contributions_year" in d else   # older data files only have commit counts
           (f"COMMITS {d['year']}", fmt(d["commits_year"]), f"{fmt(d['commits_all'])} all time"),
           ("PULL REQUESTS", fmt(d["prs"]), f"{fmt(d['prs_merged'])} merged"),
           ("CURRENT STREAK", f"{d['streak_current']}d", f"longest: {d['streak_longest']} days")]
@@ -360,7 +362,9 @@ def build_stats(d):
     h = up40(fy + 16)
     text = "".join(str(x) for x in ["~/stats// 02$ gh stats --user georgekobaidze dev stats", "".join(p for p in parts)])
     text = re.sub(r"<[^>]+>", "", text) + "0123456789,—%.★()d"
-    desc = (f"GitHub stats: {d['stars']} total stars; {d['commits_year']} commits in {d['year']}, {d['commits_all']} all time; "
+    activity = (f"{d['contributions_year']} contributions in {d['year']}, {d['contributions_all']} all time"
+                if "contributions_year" in d else f"{d['commits_year']} commits in {d['year']}, {d['commits_all']} all time")
+    desc = (f"GitHub stats: {d['stars']} total stars; {activity}; "
             f"{d['prs']} pull requests ({d['prs_merged']} merged); current streak {d['streak_current']} days, longest {d['streak_longest']}; "
             f"{d['followers']} followers; {d['forks']} forks; member since {since:%B %Y}; {d['hackathon_wins']} hackathon wins. "
             "Top languages: " + ", ".join(f"{k} {p*100:.1f}%" for k, p in items) + "."

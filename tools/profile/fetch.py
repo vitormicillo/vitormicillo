@@ -86,7 +86,7 @@ def years_query(years):
         parts.append(f"""
     y{y}: contributionsCollection(from: "{y}-01-01T00:00:00Z", to: "{y}-12-31T23:59:59Z") {{
       totalCommitContributions
-      contributionCalendar {{ weeks {{ contributionDays {{ date contributionCount }} }} }}
+      contributionCalendar {{ totalContributions weeks {{ contributionDays {{ date contributionCount }} }} }}
     }}""")
     return "query($login: String!) {\n  user(login: $login) {" + "".join(parts) + "\n  }\n}"
 
@@ -112,10 +112,11 @@ def fetch_github(token, today):
     years = sorted(u["contributionsCollection"]["contributionYears"])
     ydata = graphql(token, years_query(years), {"login": USER})["user"] if years else {}
 
-    days, commits_all = {}, 0
+    days, commits_all, contribs_all = {}, 0, 0
     for y in years:
         c = ydata[f"y{y}"]
         commits_all += c["totalCommitContributions"]
+        contribs_all += c["contributionCalendar"]["totalContributions"]
         for w in c["contributionCalendar"]["weeks"]:
             for day in w["contributionDays"]:
                 days[datetime.date.fromisoformat(day["date"])] = day["contributionCount"]
@@ -126,7 +127,9 @@ def fetch_github(token, today):
     for r in repos:
         for edge in r["languages"]["edges"]:
             langs[edge["node"]["name"]] = langs.get(edge["node"]["name"], 0) + edge["size"]
-    this_year = ydata.get(f"y{today.year}", {}).get("totalCommitContributions", 0)
+    cur = ydata.get(f"y{today.year}", {})
+    this_year = cur.get("totalCommitContributions", 0)
+    contribs_year = cur.get("contributionCalendar", {}).get("totalContributions", 0)
     return {
         "created_at": u["createdAt"],
         "followers": u["followers"]["totalCount"],
@@ -139,6 +142,8 @@ def fetch_github(token, today):
         "year": today.year,
         "commits_year": this_year,
         "commits_all": commits_all,
+        "contributions_year": contribs_year,
+        "contributions_all": contribs_all,
         "streak_current": current,
         "streak_longest": longest,
     }
