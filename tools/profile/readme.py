@@ -49,6 +49,17 @@ def stats_alt(d):
     return html.escape(text, quote=True)
 
 
+def city_alt(calendar):
+    total = sum(n for _, n in calendar)
+    busiest = max(calendar, key=lambda t: t[1]) if calendar else None
+    text = (f"Contribution city: an isometric night skyline with one building per day of the last year. "
+            f"{total:,} contributions")
+    if busiest and busiest[1]:
+        d = datetime.date.fromisoformat(busiest[0])
+        text += f", busiest day {d:%B} {d.day} with {busiest[1]}"
+    return html.escape(text + ".", quote=True)
+
+
 def main():
     stats = json.loads((DATA / "stats.json").read_text())
     articles = json.loads((DATA / "articles.json").read_text())
@@ -62,6 +73,11 @@ def main():
                    lambda m: m.group(1) + stats_alt(stats) + m.group(2), s)
     if n != 1:
         sys.exit("error: README needs exactly one stats.svg image with an alt attribute")
+
+    cal_file = DATA / "calendar.json"
+    if cal_file.exists():   # optional section: only touched when the README has the city image
+        s = re.sub(r'(<img src="\./assets/contribution-city\.svg"[^>]*?alt=")[^"]*(")',
+                   lambda mm: mm.group(1) + city_alt(json.loads(cal_file.read_text())) + mm.group(2), s)
 
     README.write_text(s)
     print("README updated")
