@@ -1,4 +1,5 @@
-"""Fetches fresh profile data from GitHub and DEV into data/stats.json and data/articles.json.
+"""Fetches fresh profile data from GitHub and DEV into data/stats.json, data/articles.json
+and data/calendar.json (last 53 weeks of daily contributions).
 
 Environment variables (all optional):
   PROFILE_TOKEN  classic personal access token (repo + read:user). Lets commit, PR and
@@ -121,6 +122,11 @@ def fetch_github(token, today):
             for day in w["contributionDays"]:
                 days[datetime.date.fromisoformat(day["date"])] = day["contributionCount"]
     current, longest = streaks(days, today)
+    # last 53 weeks, starting on a Sunday like GitHub's own graph (feeds the contribution city)
+    start = today - datetime.timedelta(weeks=52)
+    start -= datetime.timedelta(days=(start.weekday() + 1) % 7)
+    calendar = [[d.isoformat(), days.get(d, 0)] for d in
+                (start + datetime.timedelta(days=i) for i in range((today - start).days + 1))]
 
     repos = u["repositories"]["nodes"]
     langs = {}
@@ -146,6 +152,7 @@ def fetch_github(token, today):
         "contributions_all": contribs_all,
         "streak_current": current,
         "streak_longest": longest,
+        "_calendar": calendar,
     }
 
 
@@ -200,7 +207,9 @@ def main():
     token = os.environ.get("PROFILE_TOKEN") or os.environ.get("GITHUB_TOKEN")
     if token:
         try:
-            stats.update(fetch_github(token, today))
+            gh = fetch_github(token, today)
+            save("calendar.json", gh.pop("_calendar"))
+            stats.update(gh)
             ok = True
             print("github: ok" + (" (with private contributions)" if os.environ.get("PROFILE_TOKEN") else " (public only)"))
         except Exception as ex:  # noqa: BLE001
