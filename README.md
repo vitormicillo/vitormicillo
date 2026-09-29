@@ -1,6 +1,3 @@
-> [!NOTE]
-> This custom profile is currently under development. Some sections may be incomplete or temporarily unavailable.
-
 <p align="center">
 <img src="./assets/header.svg" width="100%" align="top" alt="Giorgi Kobaidze — software engineer and engineering manager. 10 years of C# and .NET, back-end at heart. Building open-source tools under Pilotronica.">
 <img src="./assets/links.svg" width="100%" align="top" alt="Links">
