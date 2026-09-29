@@ -1,0 +1,39 @@
+{
+  "updated": "2026-09-29",
+  "year": 2026,
+  "created_at": "2016-12-26T08:38:44Z",
+  "stars": 34,
+  "forks": 7,
+  "followers": 29,
+  "commits_year": 600,
+  "commits_all": 706,
+  "prs": 177,
+  "prs_merged": 156,
+  "streak_current": 1,
+  "streak_longest": 24,
+  "hackathon_wins": 2,
+  "languages": {
+    "TypeScript": 476092,
+    "JavaScript": 221963,
+    "C#": 118369,
+    "CSS": 85328,
+    "Python": 39858,
+    "HTML": 16894,
+    "PowerShell": 7766,
+    "Shell": 6135,
+    "Smalltalk": 592
+  },
+  "repo_stars": {
+    "noterunway": 13,
+    "sunday-dev-drive": 9,
+    "metal-birds-watch": 7,
+    "neuralhats": 4
+  },
+  "dev": {
+    "articles": null,
+    "reactions": null,
+    "comments": null,
+    "views": null,
+    "followers": null
+  }
+}
