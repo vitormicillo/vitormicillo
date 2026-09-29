@@ -36,7 +36,8 @@ def stats_alt(d):
     since = datetime.date.fromisoformat(d["created_at"][:10])
     langs = sorted(d["languages"].items(), key=lambda kv: -kv[1])[:5]
     parts = [f'{d["stars"]} total stars',
-             f'{d["commits_year"]} commits in {d["year"]}, {d["commits_all"]} all time',
+             (f'{d["contributions_year"]} contributions in {d["year"]}, {d["contributions_all"]} all time'
+              if "contributions_year" in d else f'{d["commits_year"]} commits in {d["year"]}, {d["commits_all"]} all time'),
              f'{d["prs"]} pull requests ({d["prs_merged"]} merged)',
              f'current streak {days(d["streak_current"])}, longest {days(d["streak_longest"])}',
              f'{d["followers"]} followers', f'{d["forks"]} forks',
