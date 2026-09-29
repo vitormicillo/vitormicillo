@@ -5,11 +5,11 @@
   "stars": 34,
   "forks": 7,
   "followers": 29,
-  "commits_year": 600,
-  "commits_all": 706,
-  "prs": 177,
-  "prs_merged": 156,
-  "streak_current": 1,
+  "commits_year": 652,
+  "commits_all": 758,
+  "prs": 141,
+  "prs_merged": 136,
+  "streak_current": 2,
   "streak_longest": 24,
   "hackathon_wins": 2,
   "languages": {
@@ -17,23 +17,29 @@
     "JavaScript": 221963,
     "C#": 118369,
     "CSS": 85328,
-    "Python": 39858,
+    "Python": 81063,
     "HTML": 16894,
     "PowerShell": 7766,
     "Shell": 6135,
     "Smalltalk": 592
   },
   "repo_stars": {
-    "noterunway": 13,
-    "sunday-dev-drive": 9,
+    "georgekobaidze": 0,
+    "design-patterns": 0,
+    "vscode-settings": 0,
+    "oh-my-posh": 0,
+    "dotnet-templates": 0,
+    "dotnet10-playground": 1,
     "metal-birds-watch": 7,
+    "sunday-dev-drive": 9,
+    "noterunway": 13,
     "neuralhats": 4
   },
   "dev": {
-    "articles": null,
-    "reactions": null,
-    "comments": null,
-    "views": null,
-    "followers": null
+    "articles": 44,
+    "reactions": 1748,
+    "comments": 1191,
+    "views": 102916,
+    "followers": 12580
   }
 }
