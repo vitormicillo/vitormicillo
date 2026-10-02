@@ -185,6 +185,13 @@ def fetch_dev(api_key):
         try:
             mine = dev_paged("https://dev.to/api/articles/me/published", h)
             dev["views"] = sum(a.get("page_views_count", 0) for a in mine)
+            if mine:
+                # the public list can be served stale from DEV's cache for a while after
+                # publishing; this authenticated list isn't, so prefer it for the latest posts
+                arts = sorted(mine, key=lambda a: a["published_at"], reverse=True)
+                dev.update(articles=len(arts),
+                           reactions=sum(a.get("public_reactions_count", 0) for a in arts),
+                           comments=sum(a.get("comments_count", 0) for a in arts))
         except Exception as ex:  # noqa: BLE001 — one missing tile shouldn't fail the run
             warn(f"DEV views unavailable: {ex}")
         try:
