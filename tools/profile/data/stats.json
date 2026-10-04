@@ -1,30 +1,30 @@
 {
-  "updated": "2026-10-03",
+  "updated": "2026-10-04",
   "year": 2026,
   "created_at": "2016-12-26T08:38:44Z",
-  "stars": 38,
-  "forks": 10,
-  "followers": 44,
-  "commits_year": 663,
-  "commits_all": 769,
-  "prs": 145,
-  "prs_merged": 140,
-  "streak_current": 6,
+  "stars": 43,
+  "forks": 12,
+  "followers": 48,
+  "commits_year": 674,
+  "commits_all": 780,
+  "prs": 147,
+  "prs_merged": 142,
+  "streak_current": 7,
   "streak_longest": 24,
   "hackathon_wins": 2,
   "languages": {
     "TypeScript": 476092,
     "JavaScript": 221963,
     "C#": 118369,
-    "Python": 90552,
+    "Python": 92832,
     "CSS": 85328,
     "HTML": 16894,
+    "Shell": 10327,
     "PowerShell": 7766,
-    "Shell": 6135,
     "Smalltalk": 592
   },
   "repo_stars": {
-    "georgekobaidze": 3,
+    "georgekobaidze": 6,
     "design-patterns": 0,
     "vscode-settings": 0,
     "oh-my-posh": 0,
@@ -33,16 +33,16 @@
     "metal-birds-watch": 8,
     "sunday-dev-drive": 9,
     "noterunway": 13,
-    "neuralhats": 4,
+    "neuralhats": 6,
     "georgian-language-benchmarks": 0
   },
   "dev": {
     "articles": 45,
-    "reactions": 1890,
-    "comments": 1262,
-    "views": 105852,
-    "followers": 13112
+    "reactions": 1921,
+    "comments": 1284,
+    "views": 107013,
+    "followers": 13270
   },
-  "contributions_year": 1009,
-  "contributions_all": 1649
+  "contributions_year": 1052,
+  "contributions_all": 1692
 }
