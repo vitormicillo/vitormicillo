@@ -123,11 +123,10 @@ def up40(v):
 
 # ─────────────────────────────── header ───────────────────────────────
 def build_header():
-    bar_left, bar_right = "SYS://PILOTRONICA // NODE:GIORGI", "ONLINE · ALL SYSTEMS NOMINAL"
-    name = "GIORGI KOBAIDZE"
-    lines = ["software engineer · engineering manager", "10 years of C# / .NET, back-end at heart",
-             "building open-source tools under "]
-    text = bar_left + bar_right + name + "$ whoami>>" + "".join(lines) + "PILOTRONICA"
+    bar_left, bar_right = "SYS://VITORMICILLO // NODE:VITOR", "ONLINE · ALL SYSTEMS NOMINAL"
+    name = "VITOR MICILLO"
+    lines = ["father · Laravel / Python developer · coffee lover", "building practical open-source tools", "and web applications"]
+    text = bar_left + bar_right + name + "$ whoami>>" + "".join(lines)
     h = 360
     css = f"""@keyframes type{{from{{width:0}}}}
 @keyframes flicker{{0%{{opacity:0}}10%{{opacity:1}}14%{{opacity:.2}}22%{{opacity:1}}30%{{opacity:.4}}40%,100%{{opacity:1}}}}
@@ -143,7 +142,7 @@ def build_header():
     dotx = FR - 20 - len(bar_right) * 8.2 - 16
     rows = [f'<text class="fg" x="{X}" y="{{y}}"><tspan class="cy">&gt;&gt;</tspan> {e(lines[0])}</text>',
             f'<text class="fg" x="{X}" y="{{y}}"><tspan class="cy">&gt;&gt;</tspan> {e(lines[1])}</text>',
-            f'<text class="fg" x="{X}" y="{{y}}"><tspan class="cy">&gt;&gt;</tspan> {e(lines[2])}<tspan class="cy" font-weight="700">PILOTRONICA</tspan></text>']
+            f'<text class="fg" x="{X}" y="{{y}}"><tspan class="cy">&gt;&gt;</tspan> {e(lines[2])}</text>']
     desc_lines, _ = stagger(rows, 218, 24, delay0=1.75, step=0.25)
     body = f'''<rect x="{FL}" y="{M}" width="{FR-FL}" height="34" fill="{CYAN}" fill-opacity=".08"/>
 <line x1="{FL}" y1="{M+34}" x2="{FR}" y2="{M+34}" stroke="{CYAN}" stroke-opacity=".5"/>
@@ -165,18 +164,17 @@ def build_header():
 <rect class="cursor" x="{X+18}" y="291" width="10" height="17" fill="{CYAN}" filter="url(#sglow)"/>
 </g>
 <rect x="{FL}" y="{M+35}" width="{FR-FL}" height="{h-M-35}" fill="url(#scan)"/>'''
-    return slice_svg(h, body, title="Giorgi Kobaidze",
-                     desc="Software engineer and engineering manager. 10 years of C# and .NET, back-end at heart. "
-                          "Building open-source tools under Pilotronica.",
+    return slice_svg(h, body, title="Vitor Micillo",
+                     desc="Father, Laravel and Python developer, and coffee lover. Building practical open-source tools and web applications.",
                      text=text, top=True, css=css, defs=defs, weights=(400, 700, 800))
 
 
 # ─────────────────────────────── footer ───────────────────────────────
 def build_footer():
     h = 80
-    text = "$ exit connection to georgekobaidze closed. // EOF"
+    text = "$ exit connection to vitormicillo closed. // EOF"
     body = f'''<text x="{X}" y="30" class="dim"><tspan class="gr">$</tspan> exit</text>
-<text x="{X}" y="52" class="dim">connection to <tspan class="cy">georgekobaidze</tspan> closed. <tspan fill="#484f58">// EOF</tspan></text>'''
+<text x="{X}" y="52" class="dim">connection to <tspan class="cy">vitormicillo</tspan> closed. <tspan fill="#484f58">// EOF</tspan></text>'''
     return slice_svg(h, body, title="End of profile", desc="Connection closed.", text=text, bottom=True)
 
 
@@ -211,18 +209,18 @@ def half_slice(h, side, body, *, title, desc, text, weights=(400, 700)):
 
 
 PROJECTS = [
-    dict(slug="noterunway", name="NoteRunway", url="https://github.com/georgekobaidze/noterunway",
-         tag="HACKATHON WINNER", tagc=GREEN, stars=13, stack="Next.js · TypeScript · MCP",
-         desc="AI-powered Notion workspace management: clean up and organize your workspace with deterministic scans and AI analysis."),
-    dict(slug="metal-birds-watch", name="Metal Birds Watch", url="https://github.com/georgekobaidze/metal-birds-watch",
-         tag="HACKATHON WINNER", tagc=GREEN, stars=7, stack="Node.js · Leaflet · JavaScript",
-         desc="Real-time notifications when planes fly over your location, with live aircraft data on an interactive map."),
-    dict(slug="sunday-dev-drive", name="Sunday DEV Drive", url="https://github.com/georgekobaidze/sunday-dev-drive",
-         tag="DEV WEEKEND CHALLENGE", tagc=MAGENTA, stars=9, stack="Three.js · JavaScript · DEV API",
-         desc="A synthwave drive through your DEV Community articles, with your posts lit up on neon roadside billboards."),
-    dict(slug="neuralhats", name="NeuralHats", url="https://github.com/georgekobaidze/neuralhats",
-         tag="GEMMA 4 CHALLENGE", tagc=MAGENTA, stars=4, stack="React · FastAPI · Gemma 4",
-         desc="Six AI personas debate any topic using the Six Thinking Hats framework. Runs fully local."),
+    dict(slug="laravel-formbuilder", name="Laravel FormBuilder", url="https://github.com/vitormicillo/laravel-formbuilder",
+         tag="LARAVEL PACKAGE", tagc=GREEN, stars=11, stack="Laravel · jQuery · PHP",
+         desc="Laravel package for creating drag-and-drop forms with jQuery FormBuilder."),
+    dict(slug="filament-map-picker", name="Filament Map Picker", url="https://github.com/vitormicillo/filament-map-picker",
+         tag="FILAMENT PLUGIN", tagc=GREEN, stars=7, stack="Filament · JavaScript",
+         desc="Map-picker integration for Filament applications."),
+    dict(slug="doode", name="Doode", url="https://github.com/vitormicillo/doode",
+         tag="WEB APPLICATION", tagc=MAGENTA, stars=6, stack="Web · PHP",
+         desc="Official website for the Doode project."),
+    dict(slug="leaflet-map-print", name="Leaflet Map Print", url="https://github.com/vitormicillo/leaflet-map-print",
+         tag="LEAFLET PLUGIN", tagc=MAGENTA, stars=2, stack="Leaflet · JavaScript",
+         desc="Leaflet plugin that adds print and export controls to maps."),
 ]
 CARD_H = 200
 
@@ -295,7 +293,7 @@ def build_stats(d):
     yrs = (y - since).days // 365
     parts = []
     parts.append(heading(44, "stats", "// 02"))
-    parts.append(f'<g class="ln" style="animation-delay:.15s"><text x="{X}" y="96" class="dim"><tspan class="gr">$</tspan> gh stats --user georgekobaidze</text></g>')
+    parts.append(f'<g class="ln" style="animation-delay:.15s"><text x="{X}" y="96" class="dim"><tspan class="gr">$</tspan> gh stats --user vitormicillo</text></g>')
     # row 1 — big tiles
     tw, gap, ty, th = 182, 16, 118, 92
     t1 = [("TOTAL STARS", fmt(d["stars"]), f"across {d.get('repo_count', 'all')} repos" if d.get("repo_count") else "across all repos"),
@@ -358,7 +356,7 @@ def build_stats(d):
     fy = ry + rh + 30
     if t3:
         dy = ry + rh + 34
-        parts.append(f'<g class="ln" style="animation-delay:.8s"><text x="{X}" y="{dy}" class="dim"><tspan class="gr">$</tspan> dev stats --user georgekobaidze</text></g>')
+        parts.append(f'<g class="ln" style="animation-delay:.8s"><text x="{X}" y="{dy}" class="dim"><tspan class="gr">$</tspan> dev stats --user vitormicillo</text></g>')
         n = len(t3)
         dw = (FR - 36 - X - (n - 1) * 12) / n
         for i, (lab, val) in enumerate(t3):
@@ -366,7 +364,7 @@ def build_stats(d):
         fy = dy + 16 + 76 + 30
     parts.append(f'<text x="{FR-36}" y="{fy}" text-anchor="end" fill="#484f58" style="font-size:11px">// last sync {d["updated"]}</text>')
     h = up40(fy + 16)
-    text = "".join(str(x) for x in ["~/stats// 02$ gh stats --user georgekobaidze dev stats", "".join(p for p in parts)])
+    text = "".join(str(x) for x in ["~/stats// 02$ gh stats --user vitormicillo dev stats", "".join(p for p in parts)])
     text = re.sub(r"<[^>]+>", "", text) + "0123456789,—%.★()d"
     activity = (f"{d['contributions_year']} contributions in {d['year']}, {d['contributions_all']} all time"
                 if "contributions_year" in d else f"{d['commits_year']} commits in {d['year']}, {d['commits_all']} all time")
@@ -380,11 +378,11 @@ def build_stats(d):
 
 # ─────────────────────────────── stack ────────────────────────────────
 STACK = [
-    ("languages", ["C#", "Java", "TypeScript", "JavaScript", "Python"]),
-    ("frameworks", [".NET", "Node.js", "FastAPI"]),
-    ("databases", ["PostgreSQL", "MS SQL", "MySQL", "Redis", "MongoDB"]),
-    ("cloud", ["AWS", "Azure"]),
-    ("front-end", ["React", "Next.js", "Three.js", "Tailwind CSS"]),
+    ("languages", ["PHP", "Python", "JavaScript", "TypeScript"]),
+    ("frameworks", ["Laravel", "Filament", "Vue.js"]),
+    ("databases", ["MySQL", "PostgreSQL"]),
+    ("tools", ["Docker", "Git", "Composer"]),
+    ("front-end", ["Tailwind CSS", "Leaflet"]),
 ]
 
 
@@ -465,11 +463,11 @@ def build_writing_more():
 
 # ──────────────────────────────── links ───────────────────────────────
 LINKS = [
-    ("devdotto", "DEV", "@georgekobaidze", "https://dev.to/georgekobaidze"),
-    ("linkedin", "LinkedIn", "in/giorgikobaidze", "https://www.linkedin.com/in/giorgikobaidze/"),
-    ("x", "X", "@georgekobaidze", "https://x.com/georgekobaidze"),
-    ("youtube", "YouTube", "@Pilotronica", "https://www.youtube.com/@Pilotronica"),
-    ("discord", "Discord", "say hi", "https://discord.com/users/571315867426488330"),
+    ("github", "GitHub", "@vitormicillo", "https://github.com/vitormicillo"),
+    ("website", "Website", "doode-website", "https://bit.ly/doode-website"),
+    ("linkedin", "LinkedIn", "in/vitormicillo", "https://www.linkedin.com/in/vitormicillo"),
+    ("youtube", "YouTube", "@doode", "https://bit.ly/doode-youtube"),
+    ("discord", "Discord", "doode-social", "https://bit.ly/doode-social"),
 ]
 ICONS = json.load(open(HERE / "icons.json"))
 SEG = W // len(LINKS)     # 176 px per button slice
@@ -477,6 +475,12 @@ BTN_W, BTN_GAP = 124, 39  # buttons line up with the text column (x = 52 … 828
 
 
 def icon_markup(key, x, y, size=18):
+    if key == "github":
+        return (f'<rect x="{x}" y="{y}" width="{size}" height="{size}" rx="3" fill="{CYAN}"/>'
+                f'<text x="{x + size/2}" y="{y + size - 4.5}" text-anchor="middle" font-weight="700" fill="#03040a" style="font-size:11px">&lt;/&gt;</text>')
+    if key == "website":
+        return (f'<circle cx="{x + size/2}" cy="{y + size/2}" r="{size/2}" fill="none" stroke="{CYAN}" stroke-width="2"/>'
+                f'<path d="M{x + 2} {y + size/2}h{size - 4}M{x + size/2} {y + 2}c-4 4-4 10 0 {size-4}M{x + size/2} {y + 2}c4 4 4 10 0 {size-4}" fill="none" stroke="{CYAN}" stroke-width="1.2"/>')
     if key == "linkedin":   # simple generic "in" glyph (LinkedIn isn't in Simple Icons)
         return (f'<rect x="{x}" y="{y}" width="{size}" height="{size}" rx="3" fill="{CYAN}"/>'
                 f'<text x="{x + size/2}" y="{y + size - 4.5}" text-anchor="middle" font-weight="700" fill="#03040a" style="font-size:12px">in</text>')
@@ -486,8 +490,8 @@ def icon_markup(key, x, y, size=18):
 
 def build_links_head():
     body = heading(44, "links", "// 01") + f'''
-<g class="ln" style="animation-delay:.15s"><text x="{X}" y="96" class="dim"><tspan class="gr">$</tspan> ping georgekobaidze --all-channels</text></g>'''
-    return slice_svg(120, body, title="Links", desc="Where to find me", text="~/links// 01$ ping georgekobaidze --all-channels")
+<g class="ln" style="animation-delay:.15s"><text x="{X}" y="96" class="dim"><tspan class="gr">$</tspan> ping vitormicillo --all-channels</text></g>'''
+    return slice_svg(120, body, title="Links", desc="Where to find me", text="~/links// 01$ ping vitormicillo --all-channels")
 
 
 def build_link_button(k):
@@ -570,6 +574,11 @@ def _levels(counts):
 
 def build_city(calendar, updated):
     days = [(datetime.date.fromisoformat(d), n) for d, n in calendar]
+    if not days:
+        # A fresh fork has no contribution cache until its first Actions run.
+        # Render an empty grid instead of retaining another user's city.
+        today = datetime.date.fromisoformat(updated)
+        days = [(today - datetime.timedelta(days=i), 0) for i in range(364, -1, -1)]
     counts = [n for _, n in days]
     total, peak = sum(counts), max(counts) if counts else 0
     lv = _levels(counts)

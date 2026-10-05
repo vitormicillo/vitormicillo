@@ -3,7 +3,7 @@ name: Update profile
 on:
   schedule:
     - cron: "17 12 * * *"            # daily at 12:17 …
-      timezone: "America/New_York"    # … New York time (IANA zone name)
+      timezone: "Europe/London"       # … London time (IANA zone name)
   workflow_dispatch:         # "Run workflow" button on the Actions tab
   push:
     branches: [main]

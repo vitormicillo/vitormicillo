@@ -19,10 +19,11 @@ import urllib.error
 import urllib.parse
 import urllib.request
 
-USER = "georgekobaidze"
-HACKATHON_WINS = 2
+USER = "vitormicillo"
+# Keep this at zero unless you want to display a verified count.
+HACKATHON_WINS = 0
 DATA = pathlib.Path(__file__).resolve().parent / "data"
-UA = "georgekobaidze-profile-updater"
+UA = "vitormicillo-profile-updater"
 
 
 # ─────────────────────────────── helpers ───────────────────────────────
